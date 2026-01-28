@@ -1,0 +1,53 @@
+:root {
+    --bg: #0b1120; --card: #1e293b; --text: #f8fafc;
+    --accent: #38bdf8; --input: #0f172a;
+}
+
+body { font-family: 'Segoe UI', system-ui, sans-serif; background-color: var(--bg); color: var(--text); margin: 0; padding: 0; display: flex; flex-direction: column; align-items: center; }
+
+.header { width: 100%; max-width: 500px; padding: 25px 20px; display: flex; align-items: center; justify-content: space-between; box-sizing: border-box; }
+.header-brand { display: flex; align-items: center; text-decoration: none; color: inherit; }
+.header-logo { width: 50px; height: 50px; border-radius: 50%; border: 2px solid var(--accent); margin-right: 15px; }
+.header h1 { margin: 0; font-size: 20px; font-weight: 800; }
+.header h1 span { color: var(--accent); }
+.header p { margin: 0; font-size: 11px; color: #64748b; }
+.usd-czk { color: var(--accent); font-weight: bold; font-size: 0.85em; background: rgba(56, 189, 248, 0.1); padding: 5px 12px; border-radius: 15px; }
+
+.container { width: 100%; max-width: 500px; display: flex; flex-direction: column; gap: 20px; padding: 0 20px 40px; box-sizing: border-box; }
+.card { background: var(--card); border-radius: 24px; padding: 25px; border: 1px solid rgba(255,255,255,0.05); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.3); }
+
+.exchange-mode-box { background: rgba(56, 189, 248, 0.05); padding: 12px; border-radius: 12px; border: 1px dashed var(--accent); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+.exchange-mode-box label { margin: 0; color: var(--accent); cursor: pointer; text-transform: none; font-size: 13px; font-weight: bold; }
+
+label { font-size: 0.75em; font-weight: 700; color: #94a3b8; margin-bottom: 6px; display: block; text-transform: uppercase; }
+input, select { width: 100%; padding: 14px; margin-bottom: 15px; border: 1px solid var(--input); background: var(--input); color: white; border-radius: 12px; font-size: 16px; outline: none; box-sizing: border-box; }
+
+.quick-amounts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 20px; }
+.amount-btn { background: var(--input); border: 1px solid rgba(255,255,255,0.1); color: var(--text); padding: 10px 5px; border-radius: 10px; cursor: pointer; font-size: 11px; font-weight: 700; transition: 0.2s; }
+.amount-btn:hover { background: var(--accent); color: var(--bg); }
+
+.crypto-select-wrapper { display: flex; align-items: center; background: var(--input); border-radius: 12px; padding: 0 15px; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.1); }
+#activeCoinLogo { width: 22px; height: 22px; margin-right: 10px; }
+.crypto-select-wrapper select { margin-bottom: 0; border: none; }
+
+.qr-area { background: #ffffff; border-radius: 20px; padding: 30px; display: flex; flex-direction: column; align-items: center; margin-top: 10px; position: relative; }
+#qrcode { pointer-events: none; }
+.amount-display { font-size: 32px; font-weight: 800; color: #0f172a !important; margin-top: 15px; line-height: 1; }
+.symbol-display { font-size: 18px; font-weight: 700; color: var(--accent); }
+
+/* MARKET PRICE USD STYL */
+.market-price { margin-top: 5px; font-size: 13px; font-weight: 600; color: #64748b; font-family: monospace; }
+
+.network-badge { margin-top: 10px; font-size: 11px; background: #f1f5f9; color: #475569; padding: 4px 12px; border-radius: 20px; font-weight: 800; border: 1px solid #e2e8f0; }
+.secure-info { font-size: 10px; color: #94a3b8; margin-top: 15px; font-weight: 600; text-align: center; }
+
+.loader { display: none; width: 30px; height: 30px; border: 3px solid #f3f3f3; border-top: 3px solid var(--accent); border-radius: 50%; animation: spin 1s linear infinite; position: absolute; top: 35%; }
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+.loading #qrcode { opacity: 0.1; filter: blur(4px); }
+.loading #loader { display: block; }
+
+.toggle-btn { width: 100%; background: transparent; border: 1px solid var(--accent); color: var(--accent); padding: 14px; border-radius: 14px; cursor: pointer; font-weight: 700; margin-top: 20px; }
+
+.chart-collapse { max-height: 0; overflow: hidden; transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1); opacity: 0; }
+.chart-collapse.open { max-height: 900px; opacity: 1; margin-top: 10px; }
+#chart-container { height: 600px; width: 100%; border-radius: 15px; overflow: hidden; }

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Terminal | Kanak.cz</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+    <div class="header">
+        <a href="https://www.kanak.cz" target="_blank" class="header-brand">
+            <img src="logo.png" alt="Logo" class="header-logo" onerror="this.style.opacity='0'">
+            <div>
+                <h1>Crypto Terminal <span></span></h1>
+                <p>by Kanak.cz</p>
+            </div>
+        </a>
+        <div id="rateDisplay" class="usd-czk">Synchronizace...</div>
+    </div>
+
+    <div class="container">
+        <div class="card panel-input">
+            <div id="statusMessage" class="status-box"></div>
+
+            <label>Částka k úhradě (CZK)</label>
+            <input type="number" id="czkInput" value="1000">
+
+            <div class="quick-amounts">
+                <button class="amount-btn" data-value="500">500 Kč</button>
+                <button class="amount-btn" data-value="1000">1000 Kč</button>
+                <button class="amount-btn" data-value="2000">2000 Kč</button>
+                <button class="amount-btn" data-value="5000">5000 Kč</button>
+            </div>
+
+            <label>Kryptoměna</label>
+            <div class="crypto-select-wrapper">
+                <img id="activeCoinLogo" src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" alt="coin">
+                <select id="cryptoSelect">
+                    <option value="bitcoin" data-symbol="BTC">Bitcoin (BTC)</option>
+                    <option value="ethereum" data-symbol="ETH">Ethereum (ETH)</option>
+                    <option value="solana" data-symbol="SOL">Solana (SOL)</option>
+                    <option value="usd-coin" data-symbol="USDC">USD Coin (USDC)</option>
+                    <option value="dogecoin" data-symbol="DOGE">Dogecoin (DOGE)</option>
+                </select>
+            </div>
+
+            <label>Blockchain síť</label>
+            <select id="networkSelect"></select>
+
+            <div class="exchange-mode-box">
+                <input type="checkbox" id="exchangeMode">
+                <label for="exchangeMode">🚀 Režim burzy (Binance/Coinbase/Kraken/OKX/BYBit)</label>
+            </div>
+
+            <div class="qr-area" id="qrArea">
+                <div id="qrcode"></div>
+                <div class="amount-wrapper">
+                    <span id="cryptoAmount" class="amount-display">0.00</span>
+                    <span id="cryptoSymbol" class="symbol-display">BTC</span>
+                </div>
+                
+                <div id="usdPrice" class="market-price">Načítám cenu...</div>
+
+                <div id="networkBadge" class="network-badge">SÍŤ</div>
+                <p id="qrInstruction" class="secure-info">🔒 Platební příkaz pro peněženky</p>
+                <div id="loader" class="loader"></div>
+            </div>
+
+            <button id="toggleChartBtn" class="toggle-btn">📊 Zobrazit výoj ceny kryptoměny</button>
+        </div>
+
+        <div id="chartWrapper" class="chart-collapse">
+            <div class="card panel-chart" style="padding: 10px;">
+                <div id="chart-container"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://s3.tradingview.com/tv.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
